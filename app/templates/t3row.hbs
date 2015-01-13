@@ -10,13 +10,20 @@
 		{{/if}}
 		<span class="domain">({{link-to domain "domain" domain}})</span>
 	</p>
-	{{#if view.hasSelfText}}
-		<div {{bind-attr class=":expando-button :selftext view.isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando" target=view}}></div>
-	{{/if}}
-	{{#if view.hasMediaEmbed}}
-		<div {{bind-attr class=":expando-button :video view.isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando" target=view}}</div>
-	{{/if}}
+	{{#unless view.forComment}}
+		{{#if view.hasSelfText}}
+			<div {{bind-attr class=":expando-button :selftext view.isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando" target=view}}></div>
+		{{/if}}
+		{{#if view.hasMediaEmbed}}
+			<div {{bind-attr class=":expando-button :video view.isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando" target=view}}</div>
+		{{/if}}
+	{{/unless}}
 	<p class="tagline">Submitted {{time-ago datetime=created_utc}} by {{link-to author 'user' author}}</p>
+	{{#if view.forComment}}
+		{{#if view.hasSelfText}}
+			{{partial "partials/self-text"}}
+		{{/if}}
+	{{/if}}
 	<ul class="flat-list buttons">
 		{{#if over_18}}
 			<li class="rounded nsfw-stamp stamp">
@@ -28,14 +35,16 @@
 		</li>
 		<li class="share"></li>
 	</ul>
-	{{#if view.hasSelfText}}
-		{{#if view.isExpandoExpanded}}
-			{{partial "partials/self-text"}}
+	{{#unless view.forComment}}
+		{{#if view.hasSelfText}}
+			{{#if view.isExpandoExpanded}}
+				{{partial "partials/self-text"}}
+			{{/if}}
 		{{/if}}
-	{{/if}}
-	{{#if view.hasMediaEmbed}}
-		{{#if view.isExpandoExpanded}}
-			{{partial "partials/media-embed"}}
+		{{#if view.hasMediaEmbed}}
+			{{#if view.isExpandoExpanded}}
+				{{partial "partials/media-embed"}}
+			{{/if}}
 		{{/if}}
-	{{/if}}
+	{{/unless}}
 </div>

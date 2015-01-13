@@ -28,6 +28,8 @@ export default Ember.View.extend({
 		return !!this.get('context.link_flair_text');
 	}),
 
+	forComment: false,
+
 	actions: {
 		expandExpando: function() {
 			this.toggleProperty('isExpandoExpanded');
