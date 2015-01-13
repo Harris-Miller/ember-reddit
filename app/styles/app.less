@@ -98,7 +98,93 @@ a {
 	font-size: 90%;
 	height: 18px;
 	line-height: 18px;
+
+	.width-clip {
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+
+	.dropdown {
+		.srdrop {
+			float: left;
+			padding-left: 5px;
+		}
+	}
+
+	.drop-choices.srdrop {
+		margin-top: 0;
+		margin-left: 5px;
+	}
+
+	.sr-list {
+		overflow: hidden;
+	}
+
+	.selected a {
+		color: orangered;
+	}
 }
+
+#sr-more-link {
+	color: black;
+	background-color: #f0f0f0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 0 5px 0 15px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.drop-choices {
+	position: absolute;
+	left: 0px;
+	border: 1px solid gray;
+	z-index: 100;
+	background-color: white;
+	white-space: nowrap;
+	line-height: normal;
+	margin-top: 1px;
+	display: none;
+
+	a.choice {
+		cursor: pointer;
+		padding: 2px 3px 1px 3px;
+		display: block;
+	}
+}
+
+.dropdown {
+	cursor: default;
+	display: inline;
+	position: relative;
+
+	.srdrop {
+		.selected {
+			background: none no-repeat scroll center right;
+			background-image: url(../droparrowgray.gif);
+			display: inline-block;
+			vertical-align: bottom;
+			padding-right: 21px;
+			padding-left: 5px;
+			color: black;
+			font-weight: normal;
+			margin-left: -5px;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+	}
+}
+
+.srdrop .choice {
+	padding-top: 3px;
+}
+
+.sr-bar a {
+	color: black;
+}
+
 
 #header-img {
 	margin-top: 2px;
@@ -293,6 +379,10 @@ a {
 	li, form {
 		display: inline;
 		white-space: nowrap;
+	}
+
+	li.selected a {
+		color: orangered;
 	}
 }
 
