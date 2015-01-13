@@ -13,9 +13,9 @@ Router.map(function() {
 		this.resource('related', { path: 'related/:name' })
 	});
 
-	this.route('user', { path: 'u/:user' });
+	this.resource('user', { path: 'u/:user' });
 
-	this.route('domain', { path: 'domain/:domain' });
+	this.resource('domain', { path: 'domain/:domain' });
 });
 
 export default Router;

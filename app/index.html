@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>EmberReddit</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>EmberReddit</title>
+		<meta name="description" content="EmberReddit">
+		<link rel="icon" href="//www.redditstatic.com/icon.png" sizes="256x256" type="image/png">
+		<link rel="shortcut icon" href="//www.redditstatic.com/favicon.ico" type="image/x-icon">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=1024">
 
-    {{content-for 'head'}}
+		{{content-for 'head'}}
 
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/ember-reddit.css">
-  </head>
-  <body>
-    {{content-for 'body'}}
+		<link rel="stylesheet" href="assets/vendor.css">
+		<link rel="stylesheet" href="assets/ember-reddit.css">
+	</head>
+	<body>
 
-    <script src="assets/vendor.js"></script>
-    <script src="assets/ember-reddit.js"></script>
-  </body>
+		<div id="init-loading" class="centered">
+			<img src="http://snd1.splashpress1.netdna-cdn.com/wp-content/uploads/2013/12/snoo-perfect-world.gif" alt="Loading...">	
+			<h1>Loading...</h1>
+		</div>
+
+		{{content-for 'body'}}
+
+		<script src="assets/vendor.js"></script>
+		<script src="assets/ember-reddit.js"></script>
+	</body>
 </html>
