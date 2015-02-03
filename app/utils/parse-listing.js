@@ -1,9 +1,10 @@
 import Ember from 'ember';
-import thing from '../models/thing';
+import Thing from '../models/thing';
+import Listing from '../models/listing';
 
 var parseListing = function(listing) {
 	
-	return Ember.Object.create({
+	return Listing.create({
 		modhash: listing.data.modhash,
 		children: listing.data.children.map(function (child) {
 			if (!!child.data) {
@@ -12,7 +13,7 @@ var parseListing = function(listing) {
 				}
 			}
 
-			return thing.create(child);
+			return Thing.create(child);
 		}),
 		after: listing.data.after,
 		before: listing.data.before

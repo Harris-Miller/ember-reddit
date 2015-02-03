@@ -3,7 +3,7 @@ import ajax from 'ic-ajax';
 import parseListing from '../utils/parse-listing';
 
 export default Ember.Object.extend({
-	find: function(name, params) {
+	find: function(/*name, params*/) {
 
 		var url = 'https://www.reddit.com//subreddits/mine/subscriber.json';
 
@@ -13,6 +13,6 @@ export default Ember.Object.extend({
 			return parseListing(result);
 		}, function() {
 			return Ember.RSVP.resolve(Ember.Object.create()); // resolve with and empty object
-		})
+		});
 	}
 });

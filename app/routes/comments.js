@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
+	viewName: 'semantic/div-content',
+
 	model: function(params) {
 		params.subreddit = this.paramsFor('subreddit').subreddit;
 

@@ -11,14 +11,6 @@ export default Ember.ObjectController.extend({
 
 	isFrontpage: false,
 
-	hasAfter: Ember.computed('model.listing.after', function() {
-		return !!this.get('model.listing.after');
-	}),
-
-	hasBefore: Ember.computed('model.listing.before', function() {
-		return !!this.get('model.listing.before');
-	}),
-
 	nextCount: Ember.computed('count', function() {
 		if (!!this.get('count')) {
 			return this.get('count') * 2;

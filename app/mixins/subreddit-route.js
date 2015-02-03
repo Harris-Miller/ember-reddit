@@ -10,20 +10,17 @@ export default Ember.Mixin.create({
 
 	controllerName: 'subreddit',
 	templateName: 'subreddit/index',
+	viewName: 'semantic/div-content',
 
 	model: function(params) {
 		params.subreddit = params.subreddit || this.paramsFor('subreddit').subreddit;
 
 		// need to use unique instances of params for each of these
+		// so use $.extend()
 		return Ember.RSVP.hash({
 			listing: this.store.find('subreddit', Ember.$.extend({}, params)),
 			about: this.store.find('about', Ember.$.extend({}, params))
 		});
-	},
-
-	afterModel: function(model, transition) {
-		// console.log(transition);
-		// console.log(this.get('router'));
 	},
 
 	setupController: function(controller, model) {
@@ -59,6 +56,7 @@ export default Ember.Mixin.create({
 			into: 'application',
 			outlet: 'sidepanel',
 			controller: 'sidepanel',
+			view: 'sidepanel',
 			model: model.about
 		});
 	}

@@ -8,7 +8,7 @@
 	<div class="nav-buttons">
 		<span class="nextprev">
 			view more:
-			{{#if hasBefore}}
+			{{#if model.listing.hasBefore}}
 				{{!-- find a better way to deal with isFrontpage link-to's --}}
 				{{!-- this should really just look at the current route, so we keep state with :sort --}}
 				{{#if isFrontpage}}
@@ -17,7 +17,7 @@
 					{{#link-to 'subreddit' currentSub (query-params count=prevCount before=model.listing.before)}}‹ prev{{/link-to}}
 				{{/if}}
 			{{/if}}
-			{{#if hasAfter}}
+			{{#if model.listing.hasAfter}}
 				{{#if isFrontpage}}
 					{{#link-to 'application' (query-params count=nextCount after=model.listing.after)}}next ›{{/link-to}}
 				{{else}}

@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import ajax from 'ic-ajax';
 import thing from '../models/thing';
-import parseListing from '../utils/parse-listing';
 
 export default Ember.Object.extend({
 	find: function(name, params) {
@@ -26,7 +25,7 @@ export default Ember.Object.extend({
 				url: url + '/about.json'
 			}).then(function(result) {
 				return thing.create(result);
-			})
+			});
 		}
 
 		// else, just return an instance of thing with an empty object to it's constructor

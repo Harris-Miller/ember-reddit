@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import ajax from 'ic-ajax';
-import thing from '../models/thing';
 import parseListing from '../utils/parse-listing';
 
 export default Ember.Object.extend({
