@@ -15,7 +15,7 @@
 			<div {{bind-attr class=":expando-button :selftext view.isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando" target=view}}></div>
 		{{/if}}
 		{{#if view.hasMediaEmbed}}
-			<div {{bind-attr class=":expando-button :video view.isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando" target=view}}</div>
+			<div {{bind-attr class=":expando-button :video view.isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando" target=view}}></div>
 		{{/if}}
 	{{/unless}}
 	<p class="tagline">Submitted {{time-ago datetime=created_utc}} by {{link-to author 'user' author}}</p>

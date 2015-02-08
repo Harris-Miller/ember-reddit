@@ -12,7 +12,7 @@
 	</div>
 	<div class="menuarea"></div>
 	<div class="sitetable nestedlisting">
-		{{#each thing in model.listings.comments.children}}
+		{{#each model.listings.comments.children as |thing|}}
 			{{render "thing" thing}}
 		{{else}}
 			<p id="noresults" class="error">theredoesn't seem to be anything here</p>

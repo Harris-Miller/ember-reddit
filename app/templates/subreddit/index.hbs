@@ -1,5 +1,5 @@
 <div id="siteTable" class="sitetable linklisting">
-	{{#each thing in model.listing.children}}
+	{{#each model.listing.children as |thing|}}
 		{{render "thing" thing}}
 	{{else}}
 		<p id="noresults" class="error">theredoesn't seem to be anything here</p>

@@ -1,5 +1,5 @@
 <ul>
-	{{#each item in model.children}}
+	{{#each model.children as |item|}}
 		<li>
 			{{item.kind}} - {{item.data.id}}
 		</li>

@@ -33,7 +33,7 @@
 </div>
 <div class="child">
 	<div class="sitetable listing">
-		{{#each child in view.children}}
+		{{#each view.children as |child|}}
 			{{view "t1row" context=child.data currentSub=view.currentSub}}
 		{{/each}}
 	</div>
