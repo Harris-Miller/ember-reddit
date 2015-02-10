@@ -1,0 +1,41 @@
+<p class="parent"></p>
+{{vote-score score=score likes=likes showScore=false}}
+<div class="entry">
+	<div class="tagline">
+		<a href="javascript:void(0);" class="expand" {{action "toggleCollapse"}}>
+			{{#if isCollapsed}}
+				[+]
+			{{else}}
+				[-]
+			{{/if}}
+		</a>
+		{{link-to model.author "user" model.author class="author"}}
+		<span class="userattrs"></span>
+		<span class="score" {{action "toggleCollapse"}}>{{score}} {{plurarizePoint}}</span>
+		<time>{{time-ago datetime=created_utc}}</time>
+		&nbsp;
+		{{#if isCollapsed}}
+			<a href="javascript:void(0);" class="numchildren">({{numChildren}} {{plurarizeChild}})</a>
+		{{/if}}
+	</div>
+
+	{{#unless isCollapsed}}
+		<div class="usertext-body md-container">
+			{{{renderedBody}}}
+		</div>
+
+		<ul class="flat-list buttons">
+			<li class="first">
+				{{link-to "permalink" "comments" subreddit id}}
+			</li>
+		</ul>
+	{{/unless}}
+</div>
+<div class="child">
+	<div class="sitetable listing">
+		{{#each children as |child|}}
+			{{t1-row model=child.data currentSub=currentSub}}
+		{{/each}}
+	</div>
+</div>
+<div class="clearleft"></div>
