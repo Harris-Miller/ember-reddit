@@ -18,8 +18,9 @@ export default Ember.Mixin.create({
 		// need to use unique instances of params for each of these
 		// so use $.extend()
 		return Ember.RSVP.hash({
-			listing: this.store.find('subreddit', Ember.$.extend({}, params)),
-			about: this.store.find('about', Ember.$.extend({}, params))
+			listing: this.store.find('subreddit', Ember.copy(params)),
+			about: this.store.find('about', Ember.copy(params)),
+			moderators: this.store.find('moderators', Ember.copy(params))
 		});
 	},
 
@@ -57,7 +58,7 @@ export default Ember.Mixin.create({
 			outlet: 'sidepanel',
 			controller: 'sidepanel',
 			view: 'sidepanel',
-			model: model.about
+			model: { about: model.about, moderators: model.moderators }
 		});
 	}
 });

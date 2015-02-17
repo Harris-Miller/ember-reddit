@@ -6,7 +6,7 @@
 		<div id="searchexpando" class="infobar" tabindex="20">
 			<label>
 				<input type="checkbox" name="restrict_sr" tabindex="21">
-				limit my search to {{model.data.url}} {{!-- TODO: maybe use display_name here--}}
+				limit my search to {{about.data.url}} {{!-- TODO: maybe use display_name here--}}
 			</label>
 			<div id="moresearchinfo">
 				{{!-- TODO --}}
@@ -39,11 +39,11 @@
 	</div>
 </div>
 
-{{#if hasModel}}
+{{#if hasAbout}}
 	<div class="spacer">
 		<div class="titlebox">
 			<h1 class="hover redditname">
-				{{model.data.display_name}}
+				{{about.data.display_name}}
 			</h1>
 
 			<span class="subscribe-button fancy-toggle-button toggle">
@@ -69,7 +69,7 @@
 				created by <a href="javascript:void(0);">TODO</a>
 				<span class="userattrs"></span>
 				<span class="age">
-					a communitry for {{time-ago datetime=model.data.created_utc noSuffix=true}}
+					a communitry for {{time-ago datetime=about.data.created_utc noSuffix=true}}
 				</span>
 			</div>
 
@@ -77,3 +77,20 @@
 		</div>
 	</div>
 {{/if}}
+
+<div class="spacer">
+	<div class="sidecontentbox">
+		<a href="javascript:void(0)" class="helplink">message the moderators</a>
+		<div class="title">
+			<h1>MODERATORS</h1>
+		</div>
+		<ul class="content">
+			{{#each moderators as |mod|}}
+				<li>
+					{{link-to mod.name "user" mod.name class="author"}}
+					<span class="userattrs"></span>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>

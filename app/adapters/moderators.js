@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import ajax from 'ic-ajax';
-import thing from '../models/thing';
+import parseUserList from '../utils/parse-user-list';
 
 export default Ember.Object.extend({
 	find: function(name, params) {
@@ -21,13 +21,13 @@ export default Ember.Object.extend({
 		// if we're not on the frontpage
 		if (!isFrontpage) {
 			return ajax({
-				url: url + '/about.json'
+				url: url + '/about/moderators.json'
 			}).then(function(result) {
-				return thing.create(result);
+				return parseUserList(result);
 			});
 		}
 
-		// else, just return an instance of thing with an empty object to it's constructor
-		return Ember.RSVP.resolve(thing.create({}));
+		// else, just return an empty array
+		return Ember.RSVP.resolve([]);
 	}
 });

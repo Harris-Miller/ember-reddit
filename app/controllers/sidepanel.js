@@ -3,28 +3,32 @@ import decodeHtml from '../utils/decode-html';
 
 export default Ember.Controller.extend({
 
-	hasModel: Ember.computed('model.data', function() {
-		return !!this.get('model.data');
+	about: Ember.computed.alias('model.about'),
+
+	moderators: Ember.computed.alias('model.moderators'),
+
+	hasAbout: Ember.computed('about.data', function() {
+		return !!this.get('about.data');
 	}),
 
-	renderedDescription: Ember.computed('model.data.description_html', function() {
-		return decodeHtml(this.get('model.data.description_html'));
+	renderedDescription: Ember.computed('about.data.description_html', function() {
+		return decodeHtml(this.get('about.data.description_html'));
 	}),
 
-	subscribersString: Ember.computed('model.data.subscribers', function() {
-		var subscribers = this.get('model.data.subscribers');
+	subscribersString: Ember.computed('about.data.subscribers', function() {
+		var subscribers = this.get('about.data.subscribers');
 
-		if (Ember.$.isNumeric(subscribers)) {
+		if (Ember.typeOf(subscribers) === 'number') {
 			return subscribers.toLocaleString();
 		}
 
 		return '';
 	}),
 
-	activeAccountsString: Ember.computed('model.data.accounts_active', function() {
-		var accounts = this.get('model.data.accounts_active');
+	activeAccountsString: Ember.computed('about.data.accounts_active', function() {
+		var accounts = this.get('about.data.accounts_active');
 
-		if (Ember.$.isNumeric(accounts)) {
+		if (Ember.typeOf(accounts) === 'number') {
 			return accounts.toLocaleString();
 		}
 
