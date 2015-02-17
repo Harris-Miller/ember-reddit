@@ -78,19 +78,21 @@
 	</div>
 {{/if}}
 
-<div class="spacer">
-	<div class="sidecontentbox">
-		<a href="javascript:void(0)" class="helplink">message the moderators</a>
-		<div class="title">
-			<h1>MODERATORS</h1>
+{{#if hasModerators}}
+	<div class="spacer">
+		<div class="sidecontentbox">
+			<a href="javascript:void(0)" class="helplink">message the moderators</a>
+			<div class="title">
+				<h1>MODERATORS</h1>
+			</div>
+			<ul class="content">
+				{{#each moderators as |mod|}}
+					<li>
+						{{link-to mod.name "user" mod.name class="author"}}
+						<span class="userattrs"></span>
+					</li>
+				{{/each}}
+			</ul>
 		</div>
-		<ul class="content">
-			{{#each moderators as |mod|}}
-				<li>
-					{{link-to mod.name "user" mod.name class="author"}}
-					<span class="userattrs"></span>
-				</li>
-			{{/each}}
-		</ul>
 	</div>
-</div>
+{{/if}}

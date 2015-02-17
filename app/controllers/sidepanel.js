@@ -7,9 +7,9 @@ export default Ember.Controller.extend({
 
 	moderators: Ember.computed.alias('model.moderators'),
 
-	hasAbout: Ember.computed('about.data', function() {
-		return !!this.get('about.data');
-	}),
+	hasAbout: Ember.computed.bool('about.data'),
+
+	hasModerators: Ember.computed.notEmpty('moderators'),
 
 	renderedDescription: Ember.computed('about.data.description_html', function() {
 		return decodeHtml(this.get('about.data.description_html'));
