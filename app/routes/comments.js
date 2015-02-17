@@ -8,8 +8,8 @@ export default Ember.Route.extend({
 		params.subreddit = this.paramsFor('subreddit').subreddit;
 
 		return Ember.RSVP.hash({
-			listings: this.store.find('comments', Ember.$.extend({}, params)),
-			about: this.store.find('about', Ember.$.extend({}, params))
+			listings: this.store.find('comments', Ember.copy(params)),
+			about: this.store.find('about', Ember.copy(params))
 		});
 	},
 
