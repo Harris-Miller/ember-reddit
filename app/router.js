@@ -10,10 +10,12 @@ Router.map(function() {
 		this.route('sort', { path: ':sort' });
 
 		this.resource('comments', { path: 'comments/:name' });
-		this.resource('related', { path: 'related/:name' })
+		this.resource('related', { path: 'related/:name' });
 	});
 
-	this.resource('user', { path: 'u/:user' });
+	this.resource('user', { path: 'u/:user' }, function() {
+		this.route('sort', { path: ':sort' });
+	});
 
 	this.resource('domain', { path: 'domain/:domain' });
 });

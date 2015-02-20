@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import decodeHtml from '../utils/decode-html';
+import decodeHtml from '../../utils/decode-html';
 
 export default Ember.Controller.extend({
 

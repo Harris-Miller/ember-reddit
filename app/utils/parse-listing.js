@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import Thing from '../models/thing';
 import Listing from '../models/listing';
 

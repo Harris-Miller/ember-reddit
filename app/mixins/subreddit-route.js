@@ -15,8 +15,6 @@ export default Ember.Mixin.create({
 	model: function(params) {
 		params.subreddit = params.subreddit || this.paramsFor('subreddit').subreddit;
 
-		// need to use unique instances of params for each of these
-		// so use $.extend()
 		return Ember.RSVP.hash({
 			listing: this.store.find('subreddit', Ember.copy(params)),
 			about: this.store.find('about', Ember.copy(params)),
@@ -53,10 +51,10 @@ export default Ember.Mixin.create({
 			controller: 'subreddit'
 		});
 
-		this.render('sidepanel', {
+		this.render('sidepanel/subreddit', {
 			into: 'application',
 			outlet: 'sidepanel',
-			controller: 'sidepanel',
+			controller: 'sidepanel/subreddit',
 			view: 'sidepanel',
 			model: { about: model.about, moderators: model.moderators }
 		});
