@@ -1,7 +1,8 @@
 import Ember from 'ember';
+import thingMixin from '../mixins/thing-component';
 import decodeHtml from '../utils/decode-html';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(thingMixin, {
 	classNames: ['t3', 'link'],
 	classNameBindings: ['hasLinkFlair:linkflair'],
 

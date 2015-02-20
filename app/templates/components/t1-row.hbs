@@ -1,4 +1,7 @@
-<p class="parent"></p>
+{{#if showParent}}
+	{{thing-parent model=model}}
+{{/if}}
+
 {{vote-score score=score likes=likes showScore=false}}
 <div class="entry">
 	<div class="tagline">

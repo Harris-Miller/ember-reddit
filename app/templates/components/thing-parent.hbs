@@ -1,0 +1,7 @@
+<a {{bind-attr name=model.id}}></a>
+<a class="title" {{bind-attr href=model.link_url}}>{{model.link_title}}</a>
+ by 
+{{link-to model.link_author 'user' model.link_author class="author"}}
+<span class="userattrs"></span>
+ in 
+{{link-to model.subreddit 'subreddit.index' model.subreddit class="subreddit hover"}}

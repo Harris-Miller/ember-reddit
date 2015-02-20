@@ -1,8 +1,9 @@
 import Ember from 'ember';
+import thingMixin from '../mixins/thing-component';
 import calcChildren from '../utils/calc-children';
 import decodeHtml from '../utils/decode-html';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(thingMixin, {
 	classNames: ['t1', 'comment'],
 	classNameBindings: ['isCollapsed:collapsed:noncollapsed'],
 

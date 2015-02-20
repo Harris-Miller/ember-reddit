@@ -1,4 +1,7 @@
-<p class="parent"></p>
+{{#if showParent}}
+	{{thing-parent model=model}}
+{{/if}}
+
 <span class="rank">{{index}}</span>
 {{vote-score score=model.score likes=model.likes}}
 {{thumbnail-preview url=model.url src=model.thumbnail isNsfw=model.over_18}}

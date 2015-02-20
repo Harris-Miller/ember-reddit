@@ -16,7 +16,6 @@ export default Ember.Route.extend({
 	setupController: function(controller, model) {
 		this._super(controller, model);
 
-		// TODO, remove this
 		controller.set('currentSub', this.paramsFor('subreddit').subreddit);
 	},
 
