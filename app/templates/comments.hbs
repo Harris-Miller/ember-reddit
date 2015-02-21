@@ -1,6 +1,6 @@
 <div id="siteTable" class="sitetable linklisting">
 	{{#if hasPost}}
-		{{view "t3row" context=postThing.data forComment=true}}
+		{{t3-row model=postThing.data forComment=true}}
 	{{else}}
 		<p id="noresults" class="error">theredoesn't seem to be anything here</p>
 	{{/if}}

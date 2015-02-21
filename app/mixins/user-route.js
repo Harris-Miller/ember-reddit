@@ -10,7 +10,7 @@ export default Ember.Mixin.create({
 		params.user = params.user || this.paramsFor('user').user;
 
 		return Ember.RSVP.hash({
-			listing: this.store.find('user', params.user),
+			listing: this.store.find('user', params),
 			about: this.store.find('user-about', params.user)
 		});
 	},

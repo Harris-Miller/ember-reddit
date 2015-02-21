@@ -32,7 +32,7 @@ export default Ember.Route.extend({
 		this.render('sidepanel', {
 			into: 'application',
 			outlet: 'sidepanel',
-			controller: 'sidepanel',
+			controller: 'sidepanel/subreddit',
 			model: model.about
 		});
 	}
