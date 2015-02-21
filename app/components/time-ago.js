@@ -13,7 +13,7 @@ export default Ember.Component.extend({
 	}),
 
 	utc: Ember.computed('dateMoment', function() {
-		return this.get('dateMoment').format('ddd MMM HH:mm:ss YYYY z');
+		return this.get('dateMoment').format('ddd MMM D HH:mm:ss YYYY z');
 	}),
 
 	ago: Ember.computed('dateMoment', function() {

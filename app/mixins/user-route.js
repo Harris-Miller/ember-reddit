@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
 
+	controllerName: 'user',
+	templateName: 'user/index',
 	viewName: 'semantic/div-content',
 	
 	model: function(params) {
@@ -14,6 +16,18 @@ export default Ember.Mixin.create({
 	},
 
 	setupController: function(controller, model) {
+		var isBefore = !!this.controller.get('before');
+		var count = parseInt(this.controller.get('count'), 10) || 1;
+
+		// adjust account for when isBefore
+		if (isBefore && count !== 1) {
+			count = count - 25;
+		}
+
+		for (var i = 0; i < model.listing.get('children').length; i++) {
+			model.listing.get('children')[i].data.index = count + i;
+		}
+		
 		this._super(controller, model);
 
 		controller.set('user', this.paramsFor('user').user);

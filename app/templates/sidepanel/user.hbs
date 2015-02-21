@@ -6,6 +6,13 @@
 			<span class="karma">{{about.data.link_karma}}</span> link karma
 			<br>
 			<span class="karma comment-karma">{{about.data.comment_karma}}</span> comment karma
+			<div class="bottom">
+				<img src="http://www.redditstatic.com/mailgray.png">
+				<a href="javascript:void(0)">send message</a>
+				<span class="age">
+					redditor for {{time-ago datetime=about.data.created_utc noSuffux=true}}
+				</span>
+			</div>
 		</div>
 	</div>
 {{/if}}

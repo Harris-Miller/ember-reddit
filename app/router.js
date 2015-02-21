@@ -15,6 +15,10 @@ Router.map(function() {
 
 	this.resource('user', { path: 'u/:user' }, function() {
 		this.route('sort', { path: ':sort' });
+
+		this.route('comments');
+		this.route('submitted');
+		this.route('gilded');
 	});
 
 	this.resource('domain', { path: 'domain/:domain' });
