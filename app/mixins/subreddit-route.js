@@ -45,7 +45,9 @@ export default Ember.Mixin.create({
 	renderTemplate: function(controller, model) {
 		this._super();
 
-		this.render('tabmenu/subreddit', {
+		var tabmenu = controller.get('isFrontpage') ? 'tabmenu/frontpage' : 'tabmenu/subreddit';
+
+		this.render(tabmenu, {
 			into: 'application',
 			outlet: 'tabmenu',
 			controller: 'subreddit'

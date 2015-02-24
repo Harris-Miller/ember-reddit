@@ -6,6 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+
+    this.route('sort', { path: ':sort'});
+
     this.resource('subreddit', { path: 'r/:subreddit' }, function() {
         this.route('sort', { path: ':sort' });
 
@@ -22,6 +25,7 @@ Router.map(function() {
     });
 
     this.resource('domain', { path: 'domain/:domain' });
+
 });
 
 export default Router;
