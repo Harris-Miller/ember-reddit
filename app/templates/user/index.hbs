@@ -9,20 +9,10 @@
 		<span class="nextprev">
 			view more:
 			{{#if model.listing.hasBefore}}
-				{{!-- find a better way to deal with isFrontpage link-to's --}}
-				{{!-- this should really just look at the current route, so we keep state with :sort --}}
-				{{#if isFrontpage}}
-					{{#link-to 'application' (query-params count=prevCount before=model.listing.before)}}‹ prev{{/link-to}}
-				{{else}}
-					{{#link-to 'subreddit' currentSub (query-params count=prevCount before=model.listing.before)}}‹ prev{{/link-to}}
-				{{/if}}
+				{{#link-to currentRoute user (query-params count=prevCount before=model.listing.before)}}‹ prev{{/link-to}}
 			{{/if}}
 			{{#if model.listing.hasAfter}}
-				{{#if isFrontpage}}
-					{{#link-to 'application' (query-params count=nextCount after=model.listing.after)}}next ›{{/link-to}}
-				{{else}}
-					{{#link-to 'subreddit' currentSub (query-params count=nextCount after=model.listing.after)}}next ›{{/link-to}}
-				{{/if}}
+				{{#link-to currentRoute user (query-params count=nextCount after=model.listing.after)}}next ›{{/link-to}}
 			{{/if}}
 		</span>
 	</div>

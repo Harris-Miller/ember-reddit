@@ -13,7 +13,7 @@ export default Ember.Mixin.create({
 	viewName: 'semantic/div-content',
 
 	model: function(params) {
-		params.subreddit = params.subreddit || this.paramsFor('subreddit').subreddit;
+		params.subreddit = this.paramsFor('subreddit').subreddit;
 
 		return Ember.RSVP.hash({
 			listing: this.store.find('subreddit', Ember.copy(params)),

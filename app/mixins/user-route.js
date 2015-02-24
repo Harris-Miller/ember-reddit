@@ -1,16 +1,22 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
+	queryParams: {
+		t: { refreshModel: true },
+		count: { refreshModel: true },
+		after: { refreshModel: true },
+		before: { refreshModel: true }
+	},
 
 	controllerName: 'user',
 	templateName: 'user/index',
 	viewName: 'semantic/div-content',
 	
 	model: function(params) {
-		params.user = params.user || this.paramsFor('user').user;
+		params.user = this.paramsFor('user').user;
 
 		return Ember.RSVP.hash({
-			listing: this.store.find('user', params),
+			listing: this.store.find('user', Ember.copy(params)),
 			about: this.store.find('user-about', params.user)
 		});
 	},
