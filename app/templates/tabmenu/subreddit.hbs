@@ -1,3 +1,11 @@
+{{#if hasHeaderImg}}
+	{{#link-to "application" id="header-img"}}
+		<img {{bind-attr src=headerImg height=headerCoords.height width=headerCoords.width}} alt="reddit.com">
+	{{/link-to}}
+{{else}}
+	{{link-to "reddit.com" "application" id="header-img" class="default-header"}}
+{{/if}}
+
 <span class="hover pagename redditname">
 	{{link-to currentSub "subreddit.index" currentSub}}
 </span>
