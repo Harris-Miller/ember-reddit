@@ -7,18 +7,18 @@
 {{thumbnail-preview url=model.url src=model.thumbnail isNsfw=model.over_18}}
 <div class="entry">
 	<p class="title">
-		<a {{bind-attr href=model.url}}>{{model.title}}</a>
+		<a href={{model.url}}>{{model.title}}</a>
 		{{#if hasLinkFlair}}
-			<span class="linkflairlabel" {{bind-attr title=model.link_flair_text}}>{{model.link_flair_text}}</span>
+			<span class="linkflairlabel" title={{model.link_flair_text}}>{{model.link_flair_text}}</span>
 		{{/if}}
 		<span class="domain">({{link-to model.domain "domain" model.domain}})</span>
 	</p>
 	{{#unless forComment}}
 		{{#if hasSelfText}}
-			<div {{bind-attr class=":expando-button :selftext isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando"}}></div>
+			<div class="expando-button selftext {{if isExpandoExpanded "expanded" "collapsed"}}" {{action "expandExpando"}}></div>
 		{{/if}}
 		{{#if hasMediaEmbed}}
-			<div {{bind-attr class=":expando-button :video isExpandoExpanded:expanded:collapsed"}} {{action "expandExpando"}}></div>
+			<div class="expando-button video {{if isExpandoExpanded "expanded" "collapsed"}}" {{action "expandExpando"}}></div>
 		{{/if}}
 	{{/unless}}
 	<p class="tagline">Submitted {{time-ago datetime=model.created_utc}} by {{link-to model.author 'user' model.author}}</p>
