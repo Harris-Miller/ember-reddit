@@ -2,7 +2,7 @@
 	{{thing-parent model=model}}
 {{/if}}
 
-<span class="rank">{{index}}</span>
+<span class="rank">{{model.index}}</span>
 {{vote-score score=model.score likes=model.likes}}
 {{thumbnail-preview url=model.url src=model.thumbnail isNsfw=model.over_18}}
 <div class="entry">
