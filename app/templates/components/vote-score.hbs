@@ -1,5 +1,5 @@
-<div class="arrow up"></div>
+<div class="arrow {{if upvoted "upmod" "up"}}" aria-label="upvote" role="button" {{action "upvote"}}></div>
 {{#if showScore}}
 	<div class="score">{{displayScore}}</div>
 {{/if}}
-<div class="arrow down"></div>
+<div class="arrow {{if downvoted "downmod" "down"}}" aria-label="downvote" role="button" {{action "downvote"}}></div>
