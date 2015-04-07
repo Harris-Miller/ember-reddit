@@ -2,7 +2,7 @@
 	{{thing-parent model=model}}
 {{/if}}
 
-{{vote-score score=score likes=likes showScore=false}}
+{{vote-score score=model.score likes=model.likes id=model.id showScore=false}}
 <div class="entry">
 	<div class="tagline">
 		<a href="javascript:void(0);" class="expand" {{action "toggleCollapse"}}>
