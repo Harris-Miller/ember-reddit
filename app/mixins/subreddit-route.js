@@ -28,10 +28,11 @@ export default Ember.Mixin.create({
 
 		// adjust account for when isBefore
 		if (isBefore && count !== 1) {
-			count = count - 25;
+			count = count - 25; // TODO: 25 should not be hard-coded here, needs to be a variable, just need to figure out what
 		}
 
-		for (var i = 0; i < model.listing.get('children').length; i++) {
+		var length = model.listing.get('children').length;
+		for (var i = 0; i < length; i++) {
 			model.listing.get('children')[i].data.index = count + i;
 		}
 
