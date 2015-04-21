@@ -1,9 +1,11 @@
 import decodeHtml from 'ember-reddit/utils/decode-html';
 
+import {module, test} from 'qunit';
+
 module('decodeHtml');
 
 // Replace this with your real tests.
-test('it works', function() {
+test('it works', function(assert) {
   var result = decodeHtml();
-  ok(result);
+  assert.ok(result);
 });
